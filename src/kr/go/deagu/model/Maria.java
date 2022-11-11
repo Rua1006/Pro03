@@ -10,8 +10,8 @@ public class Maria {
 	final static String NOTICE_SELECT_ALL = "select * from notice order by regdate desc";
 	final static String NOTICE_SELECT_ONE = "select * from notice where no=?";
 	final static String NOTICE_INSERT = "insert into notice(title, content) values(?,?)";
-	final static String NOTICE_DELETE = "delete from notice where notino=?";
-	final static String NOTICE_VISITED_UP = "update notice set visited=visited+1 where notino=?";
+	final static String NOTICE_DELETE = "delete from notice where no=?";
+	final static String NOTICE_VISITED_UP = "update notice set visited=visited+1 where no=?";
 	
 	final static String USER_JOIN = "insert into user(id, pw, name, birth, email, tel, address) values (?,?,?,?,?,?,?)";
 	final static String USER_LOGIN = "select * from user where id=? and pw=?";

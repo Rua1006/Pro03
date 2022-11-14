@@ -14,3 +14,6 @@ CREATE TABLE notice(
 	);
 	
 DESC notice;
+
+INSERT INTO notice(title, content) VALUES("테스트","테스트내용");
+SELECT * FROM notice;

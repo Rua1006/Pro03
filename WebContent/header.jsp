@@ -4,11 +4,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*, java.lang.*" %>
 <%@ page import="java.text.*, java.net.InetAddress" %>
-<c:set var="path2" value="${request.getContextPath }" />
+<c:set var="path1" value="<%=request.getContextPath() %>" />
+<c:set var="path2" value="${pageContext.request.contextPath }"/>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="<%=request.getContextPath() %>/">
-      <img src="../data/logo.png" width="112" height="28">
+      <img src="${path2 }/data/img/logo.png" width="112" height="28"/>
     </a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -92,10 +93,10 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-dark">
+          <a class="button is-dark" href="${path2 }/user/membership.jsp">
             <strong>회원가입</strong>
           </a>
-          <a class="button is-light">
+          <a class="button is-light" href="${path2 }/user/login.jsp">
           	로그인
           </a>
         </div>

@@ -19,27 +19,17 @@ INSERT INTO notice(title, content) VALUES("테스트","테스트내용");
 SELECT * FROM notice;
 
 create table user(
-
 	id varchar(20) primary key, 
-
 	pw varchar(100) not null,
-
 	name varchar(50) not null,
-
+    point int default 0,
+	grade varchar(40),
+    visited int default 0,
+    tel varchar(100),
 	address varchar(100) not null,
-
+	email varchar(300),
 	birth varchar(100),
-
-	tel varchar(100),
-
-	regdate datetime default now(),
-
-	point int default 0,
-
-	level int default 0,
-
-	visited int default 0
-
+	regdate datetime default now()
 );
     
     

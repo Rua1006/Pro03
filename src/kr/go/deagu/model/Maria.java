@@ -14,9 +14,12 @@ public class Maria {
 	final static String NOTICE_UPDATE = "update notice set title=?, content=? where no=?";
 	final static String NOTICE_VISITED_UP = "update notice set visited=visited+1 where no=?";
 	
-	final static String USER_JOIN = "insert into user(id, pw, name, address, birth, tel) values (?,?,?,?,?,?)";
-	final static String USER_LOGIN = "select * from user where id=? and pw=?";
+	final static String USER_JOIN = "insert into user(id, pw, name, birth, email, tel, address) values (?,?,?,?,?,?,?)";
+	final static String USER_LOGIN = "select * form user where id=? and pw=?";
 	final static String USER_ID_CHECK = "select * from user where id=?";
+	final static String USER_ALL = "select * from user";
+	final static String USER_UPDATE = "update user set pw=?, name=?, birth=?, email=?, tel=?, address=? where id=?";
+	final static String VISIT_UPDATE = "update user set visited=visited+1 where id=?";
 	
 	static final String DRIVER = "org.mariadb.jdbc.Driver";
 	static final String URL = "jdbc:mariadb://127.0.0.1:3308/goverment?serverTimezone=Asia/Seoul";

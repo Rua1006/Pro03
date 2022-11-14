@@ -4,13 +4,14 @@ public class UserDTO {
 	private String id;
 	private String pw;
 	private String name;
-	private String address;
-	private String birth;
-	private String tel;
-	private String regDate;
 	private int point;
-	private int level;
+	private String grade;
 	private int visited;
+	private String tel;
+	private String address;
+	private String email;
+	private String birth;
+	private String regdate;
 	public String getId() {
 		return id;
 	}
@@ -29,41 +30,17 @@ public class UserDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	public String getRegDate() {
-		return regDate;
-	}
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
-	}
 	public int getPoint() {
 		return point;
 	}
 	public void setPoint(int point) {
 		this.point = point;
 	}
-	public int getLevel() {
-		return level;
+	public String getGrade() {
+		return grade;
 	}
-	public void setLevel(int level) {
-		this.level = level;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 	public int getVisited() {
 		return visited;
@@ -71,6 +48,34 @@ public class UserDTO {
 	public void setVisited(int visited) {
 		this.visited = visited;
 	}
-	
-	
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
 }

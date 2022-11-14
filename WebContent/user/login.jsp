@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*, java.lang.*" %>
 <%@ page import="java.text.*, java.net.InetAddress" %>
+<c:set var="path1" value="<%=request.getContextPath() %>" />
 <!DOCTYPE>
 <html>
 <head>
@@ -25,13 +26,21 @@
 	<div class="field">
 		<h2 class="page_title">로그인</h2>
 		<div class="form_fr">
-			<form name="frm1" id="frm1" action="<%=request.getContextPath()%>/UserLoginCtrl.do" method="post">
+			<form name="frm1" id="frm1" action="${path1 }/UserLoginCtrl.do" method="post" onsubmit="return joinCheck(this)">
 			 	<table class="table">
 					<tbody>
 						<tr>
 						<th>아이디</th>
 						<td>
 							<input type="text" id="cusId" name="cusId" class="input" placeholder="아이디입력" autofocus required/>
+							<div>
+							<c:if test="${empty msg }">
+								<p></p>
+							</c:if>
+							<c:if test="${not empty msg }">
+								<p>${msg }</p>
+							</c:if>
+						</div>
 						</td>
 						</tr>
 						<tr>
@@ -45,6 +54,7 @@
 				<div class="btn-group">
 					<input type="submit" name="submit-btn" class="button is-link" value="로그인">
 					<input type="reset" name="reset-btn" class="button is-warning" value="취소">
+					<a href="<%=request.getContextPath() %>/user/membership.jsp" class="button button-danger">회원가입</a>
 				</div>
 			</form>
 		</div>	

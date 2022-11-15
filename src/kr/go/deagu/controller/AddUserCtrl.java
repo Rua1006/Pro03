@@ -52,7 +52,7 @@ public class AddUserCtrl extends HttpServlet {
 		}
 		if(cnt>=1){
 			result = false;
-			response.sendRedirect("./user/joinForm.jsp?qid="+id);
+			response.sendRedirect("./user/signUp.jsp?qid="+id);
 		}else {
 			result = true;
 			user.setId(id);
@@ -66,7 +66,7 @@ public class AddUserCtrl extends HttpServlet {
 			if(suc>=1){
 				response.sendRedirect(request.getContextPath());
 			} else {
-				response.sendRedirect("./user/sinUp.jsp?qid="+id);
+				response.sendRedirect("./user/signUp.jsp?qid="+id);
 			}
 		}
 	}

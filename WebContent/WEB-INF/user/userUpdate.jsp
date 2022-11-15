@@ -98,17 +98,17 @@
 				</tr>
 				<tr>
 					<th>방문 횟수</th>
-					<td>${dto.visted }</td>
+					<td>${dto.visited }</td>
 				</tr>
 				<tr>
 					<th>주소</th>
 					<td>
 					<h3>
-						현재 주소 : ${dto.addr }
+						현재 주소 : ${dto.address }
 					</h3>
-					<input type="hidden" name="addr" id="addr" value="${dto.addr }" />
+					<input type="hidden" name="addr" id="addr" value="${dto.address }" />
 					<h3>변경할 주소 <span style="color:red">변경시에만 입력하시오.</span></h3>
-					<c:set var="juso" value="${fn:split(dto.addr,'<br>')}" />
+					<c:set var="juso" value="${fn:split(dto.address,'<br>')}" />
 					<input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="input" value="${juso[0] }" required /><br>
 					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="input" value="${juso[1] }" required /><br>
 					<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="input">

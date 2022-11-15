@@ -35,8 +35,24 @@ create table user(
     
     
 DROP TABLE user;    
-INSERT INTO user(cusId, cusPw, cusName, address, tel) VALUES("admin", "12345", "관리자", "관리자", "010-0000-0000");
     
 SELECT * FROM user;
+
+CREATE TABLE pic(
+NO INT PRIMARY KEY AUTO_INCREMENT,
+tourno VARCHAR(20) NOT NULL,
+picname VARCHAR(100) NOT NULL,
+pos VARCHAR(300)
+);
+
+CREATE TABLE tour(
+no INT PRIMARY KEY AUTO_INCREMENT,
+title VARCHAR(20) NOT NULL,
+content VARCHAR(1000) NOT NULL,
+file1 VARCHAR(100),
+filename VARCHAR(100)
+);
+
+DROP TABLE tour;
 
 COMMIT;

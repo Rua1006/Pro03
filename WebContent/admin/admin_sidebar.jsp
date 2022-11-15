@@ -16,7 +16,7 @@
     </span>
     회원관리
   </a>
-  <a class="panel-block">
+  <a class="panel-block" href="${path1 }/GetNoticeListCtrl.do">
     <span class="panel-icon">
       <i class="fas fa-book" aria-hidden="true"></i>
     </span>

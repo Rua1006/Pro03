@@ -17,7 +17,9 @@
   <body>
   <jsp:include page="/header.jsp" />
   <section class="section">
-    <div class="container">
+    <div class="columns is-full">
+    <jsp:include page="../../admin/admin_sidebar.jsp" />
+  	<div class="column is-10">
       <h1 class="title">공지사항 목록</h1>
 		<table class="table">
 		  <thead>
@@ -37,16 +39,17 @@
 		      	<fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
 		    </tr>
 		    </c:forEach>
-<%-- 		    <c:if test="${list==null }">
+			 <c:if test="${empty list }">
 		    <tr>
 		    	<td colspan="3">해당 데이터 목록이 없습니다.</td>
 		    </tr>
-		    </c:if> --%>
+		    </c:if>
 		  </tbody>
 		</table>
 		<div class="buttons">
 		  <a href="${path1 }/notice/addNotice.jsp" class="button is-success">글 등록</a>
 		</div>
+    </div>
     </div>
   </section>
   <jsp:include page="/footer.jsp"></jsp:include>

@@ -5,13 +5,14 @@
 <%@ page import="java.util.*, java.lang.*" %>
 <%@ page import="java.text.*, java.net.InetAddress" %>
 <c:set var="path1" value="<%=request.getContextPath() %>" />
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <title>로그인 페이지</title>
+<jsp:include page="/head.jsp" />
 <style>
 .field {width:50%; margin:0 auto; height: 100vh;}
 .page_title { padding-top: 1em; font-weight:bolder; font-size: 50px;  text-align: center; margin-top: 30px;}
@@ -32,21 +33,21 @@
 						<tr>
 						<th>아이디</th>
 						<td>
-							<input type="text" id="cusId" name="cusId" class="input" placeholder="아이디입력" autofocus required/>
+							<input type="text" id="id" name="id" class="input" placeholder="아이디입력" autofocus required/>
 							<div>
-							<c:if test="${empty msg }">
-								<p></p>
-							</c:if>
-							<c:if test="${not empty msg }">
-								<p>${msg }</p>
-							</c:if>
-						</div>
+								<c:if test="${empty msg }">
+									<p></p>
+								</c:if>
+								<c:if test="${not empty msg }">
+									<p>${msg }</p>
+								</c:if>
+							</div>
 						</td>
 						</tr>
 						<tr>
 						<th>비밀번호</th>
 						<td>
-							<input type="password" id="cusPw" name="cusPw" class="input" placeholder="비밀번호입력" required/>
+							<input type="password" id="pw" name="pw" class="input" placeholder="비밀번호입력" required/>
 						</td>
 						</tr>
 					</tbody>

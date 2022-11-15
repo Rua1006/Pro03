@@ -6,10 +6,10 @@
 <%@ page import="java.text.*, java.net.InetAddress" %>
 <c:set var="path1" value="<%=request.getContextPath() %>" />
 <c:set var="path2" value="${pageContext.request.contextPath }"/>
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="<%=request.getContextPath() %>/">
-      <img src="${path2 }/data/img/logo.png" width="112" height="28"/>
+    <a class="navbar-item" id="logo" href="<%=request.getContextPath() %>/">
+      
     </a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -91,16 +91,31 @@
 		</div>
 	</div>
     <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-dark" href="${path2 }/user/membership.jsp">
-            <strong>회원가입</strong>
-          </a>
-          <a class="button is-light" href="${path2 }/user/login.jsp">
-          	로그인
-          </a>
-        </div>
-      </div>
-    </div>
+	  <div class="navbar-item">
+	  	<c:if test="${empty sid }">
+	 <div class="buttons">
+	   <a href="${path2 }/user/membership.jsp" class="button is-dark">
+	     <strong>회원가입</strong>
+	   </a>
+	   <a href="${path2 }/user/login.jsp" class="button is-light">
+	   	 로그인
+	   </a>
+	 </div>
+	</c:if>
+	<c:if test="${not empty sid }">
+	 <div class="buttons">
+	   <a href="${path2 }/UserInfoCtrl.do" class="button is-light">
+	     <strong>유저정보</strong>
+	   </a>
+	   <a href="${path2 }/UserLogoutCtrl.do" class="button is-light">
+	   	 로그아웃
+	   </a>
+		<c:if test='${sid.equals("admin")}'>
+		   <a href="${path2 }/AdminCtrl.do" class="button is-warning">
+		     <strong>관리자</strong>
+		   </a>
+		 </c:if>
+	 </div>
+	</c:if>
   </div>
 </nav>

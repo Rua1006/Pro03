@@ -19,7 +19,7 @@
 	    <div class="columns is-full">
 			<jsp:include page="${path1 }/admin/admin_sidebar.jsp" />
 			<div class="column is-10">
-				<h2>${admin }되는가?</h2>
+				<h2>${admin }페이지에 오신걸 환영합니다.</h2>
 				<h3>관리자 메인 페이지</h3>
 			</div>
 		</div>

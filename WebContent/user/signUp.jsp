@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*, java.lang.*" %>
 <%@ page import="java.text.*, java.net.InetAddress" %>
+
 <c:set var="path1" value="<%=request.getContextPath() %>" />
 <!DOCTYPE html>
 <html>
@@ -166,6 +167,7 @@
 	}
 	</script>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
 </div>
 </div>
 <jsp:include page="/footer.jsp"/>

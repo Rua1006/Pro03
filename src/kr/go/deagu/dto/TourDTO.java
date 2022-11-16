@@ -2,40 +2,58 @@ package kr.go.deagu.dto;
 
 public class TourDTO {
 	private int no;
-	private String title;
-	private String content;
-	private String file1;
-	private String filename;
+	private String tourno;
+	private String cate;
+	private String place;
+	private String comment1;
+	private String comment2;
+	private String imgURL;
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public String getTitle() {
-		return title;
+	public String getTourno() {
+		return tourno;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTourno(String tourno) {
+		this.tourno = tourno;
 	}
-	public String getContent() {
-		return content;
+	public String getCate() {
+		return cate;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setCate(String cate) {
+		this.cate = cate;
 	}
-	public String getFile1() {
-		return file1;
+	public String getPlace() {
+		return place;
 	}
-	public void setFile1(String file1) {
-		this.file1 = file1;
+	public void setPlace(String place) {
+		this.place = place;
 	}
-	public String getFilename() {
-		return filename;
+	public String getComment1() {
+		return comment1;
 	}
-	public void setFilename(String filename) {
-		this.filename = filename;
+	public void setComment1(String comment1) {
+		this.comment1 = comment1;
 	}
-
-	
+	public String getComment2() {
+		return comment2;
+	}
+	public void setComment2(String comment2) {
+		this.comment2 = comment2;
+	}
+	public String getImgURL() {
+		return imgURL;
+	}
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
+	}
+	@Override
+	public String toString() {
+		return "TourDTO [no=" + no + ", tourno=" + tourno + ", cate=" + cate
+				+ ", place=" + place + ", comment1=" + comment1 + ", comment2="
+				+ comment2 + "]";
+	}
 }

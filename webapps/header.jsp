@@ -18,55 +18,62 @@
     </a>
   </div>
 	<div id="navbarBasicExample" class="navbar-menu">
-	  <div class="navbar-start">
+	  <div class="navbar-start" id="gnb">
 	    <div class="navbar-item has-dropdown is-hoverable">
-			<a class="navbar-link">
+			<a class="navbar-link"  href="${path2 }/GetTourCateListCtrl.do?cate=A">
 		 	명품관광코스
 			</a>
-			<div class="navbar-dropdown">
-	          <a class="navbar-item">
-				대표관광코스
-	          </a>
-	          <hr class="navbar-divider">
-	          <a class="navbar-item">
-	         	  나만의 맞춤관광
-	          </a>
-	          <hr class="navbar-divider">
-	          <a class="navbar-item">
-	         	  올레길/둘레길 코스
-	          </a>
-	       	</div>
+			<div class="navbar-dropdown cate" id="cate01">
+				    
+			</div>
 		</div>
-	    <a class="navbar-item" href="#">
-		관광명소
-	    </a>
-	    <a class="navbar-item" href="#">
-		축제
-	    </a>
-	    <a class="navbar-item" href="#">
-		숙박/식당/쇼핑
-	    </a>
 		<div class="navbar-item has-dropdown is-hoverable">
-			<a class="navbar-link">
-		 	대구관광
+			<a class="navbar-link"  href="${path2 }/GetTourCateListCtrl.do?cate=B">
+		 	관광명소
 			</a>
-			<div class="navbar-dropdown">
-	          <a class="navbar-item">
-				여행소식
-	          </a>
-	          <hr class="navbar-divider">
-	          <a class="navbar-item">
-	         	   관광서비스
-	          </a>
-	          <hr class="navbar-divider">
-	          <a class="navbar-item">
-	         	   문의
-	          </a>
-	          <hr class="navbar-divider">
-	          <a class="navbar-item">
-	           	자주묻는질문
-	          </a>
-	       	</div>
+			<div class="navbar-dropdown cate" id="cate02">
+				    
+			</div>
+		</div>
+		<div class="navbar-item has-dropdown is-hoverable">
+			<a class="navbar-link"  href="${path2 }/GetTourCateListCtrl.do?cate=C">
+		 	축제
+			</a>
+			<div class="navbar-dropdown cate" id="cate03">
+				    
+			</div>
+		</div>
+		<div class="navbar-item has-dropdown is-hoverable">
+			<a class="navbar-link"  href="${path2 }/GetTourCateListCtrl.do?cate=D">
+		 	숙박
+			</a>
+			<div class="navbar-dropdown cate" id="cate04">
+				    
+			</div>
+		</div>
+		<div class="navbar-item has-dropdown is-hoverable">
+			<a class="navbar-link"  href="${path2 }/GetTourCateListCtrl.do?cate=E">
+		 	식당
+			</a>
+			<div class="navbar-dropdown cate" id="cate05">
+				    
+			</div>
+		</div>
+		<div class="navbar-item has-dropdown is-hoverable">
+			<a class="navbar-link"  href="${path2 }/GetTourCateListCtrl.do?cate=F">
+		 	명품관광코스
+			</a>
+			<div class="navbar-dropdown cate" id="cate06">
+				    
+			</div>
+		</div>
+		<div class="navbar-item has-dropdown is-hoverable">
+			<a class="navbar-link"  href="${path2 }/GetTourCateListCtrl.do?cate=G">
+		 	쇼핑
+			</a>
+			<div class="navbar-dropdown cate" id="cate07">
+				    
+			</div>
 		</div>
 	    <a class="navbar-item" href="<%=request.getContextPath()%>/GetNoticeListCtrl.do">
 		NOTICE
@@ -121,3 +128,42 @@
   </div>
   </div>
 </nav>
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			url:"${path2 }/MenuLoadCtrl.do",
+			type:"POST",
+			enctype:"UTF-8",
+			datatype:"json",
+			processData:false,
+			contentType:false, 
+			cache:false,
+			success:function(data){
+				$(".navbar-dropdown.cate").empty();
+				var trans = $.parseJSON(data);
+				$.each(trans, function(key, value){
+					if(key=="data"){
+						for(var i=0;i<value.length;i++){
+							if(value[i].cate=="A"){
+								$("#cate01").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="B"){
+								$("#cate02").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="C"){
+								$("#cate03").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="D"){
+								$("#cate04").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="E"){
+								$("#cate05").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="F"){
+								$("#cate06").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="G"){
+								$("#cate07").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							}
+						}
+					}
+				});
+				
+			}
+		});
+	});
+</script>

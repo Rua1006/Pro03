@@ -1,4 +1,4 @@
-package kr.go.deagu.test;
+package kr.go.deagu.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,23 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
+import kr.go.deagu.model.TourDAO;
 
 
-@WebServlet("/JSONTest1.do")
-public class JSONTest1 extends HttpServlet {
+@WebServlet("/DelTourCtrl.do")
+public class DelTourCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+   
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		
-		String result = "텍스트 데이터";
-		JSONObject json = new JSONObject();
-		json.put("result", result);
 		PrintWriter out = response.getWriter();
-		out.println(json);
+		
+		int no = Integer.parseInt(request.getParameter("no"));
+		
+		TourDAO dao = new TourDAO();
+		int cnt = dao.delTour(no);
+		
+		if(cnt>=1){
+			response.sendRedirect("GetTourListCtrl.do");
+		} else {
+			response.sendRedirect("GetTourDetailCtrl.do?no="+no);
+		}
 	}
 
 }

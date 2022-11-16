@@ -1,7 +1,9 @@
-package kr.go.deagu.test;
+package kr.go.deagu.view;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,11 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
+import kr.go.deagu.dto.TourDTO;
+import kr.go.deagu.model.TourDAO;
+import net.sf.json.JSONObject;
 
 
-@WebServlet("/JSONTest1.do")
-public class JSONTest1 extends HttpServlet {
+
+@WebServlet("/MenuLoadCtrl.do")
+public class MenuLoadCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,11 +26,16 @@ public class JSONTest1 extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		String result = "텍스트 데이터";
-		JSONObject json = new JSONObject();
-		json.put("result", result);
-		PrintWriter out = response.getWriter();
-		out.println(json);
-	}
+		TourDAO dao = new TourDAO();
+		
+		ArrayList<TourDTO> data = dao.JSONPlaceList();
 
+		PrintWriter out = response.getWriter();
+		HashMap<String,Object> map = new HashMap<String, Object>();
+		map.put("data", data);
+		
+		JSONObject json = new JSONObject();
+		json.putAll(map);
+		out.println(json.toString());
+	}
 }

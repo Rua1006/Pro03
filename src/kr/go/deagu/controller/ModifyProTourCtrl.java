@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.go.deagu.dto.TourDTO;
 import kr.go.deagu.model.TourDAO;
 
-
-@WebServlet("/AddTourCtrl.do")
-public class AddTourCtrl extends HttpServlet {
+@WebServlet("/ModifyProTourCtrl.do")
+public class ModifyProTourCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,6 +20,7 @@ public class AddTourCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		int no = Integer.parseInt(request.getParameter("no"));
 		String cate = request.getParameter("cate");
 		String tourno = request.getParameter("tourno");
 		String place = request.getParameter("place");
@@ -28,6 +28,7 @@ public class AddTourCtrl extends HttpServlet {
 		String comment2 = request.getParameter("comment2");
 		
 		TourDTO dto = new TourDTO();
+		dto.setNo(no);
 		dto.setCate(cate);
 		dto.setTourno(tourno);
 		dto.setPlace(place);
@@ -35,12 +36,12 @@ public class AddTourCtrl extends HttpServlet {
 		dto.setComment2(comment2);
 		
 		TourDAO dao = new TourDAO();
-		int cnt = dao.addTour(dto);
+		int cnt = dao.modifyTour(dto);
 		
 		if(cnt>=1){
 			response.sendRedirect("GetTourListCtrl.do");
 		} else {
-			response.sendRedirect("./tour/addTour.jsp");
+			response.sendRedirect("ModifyTourCtal.do?no="+no);
 		}
 	}
 }

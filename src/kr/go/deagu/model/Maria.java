@@ -21,12 +21,15 @@ public class Maria {
 	final static String USER_UPDATE = "update user set pw=?, name=?, birth=?, email=?, tel=?, address=? where id=?";
 	final static String VISIT_UPDATE = "update user set visited=visited+1 where id=?";
 	
-	final static String PIC_UPLOAD = "update pic set tourno=?, picname=?, pos=?";
-	final static String TOUR_UPDATE = "update tour set title=?, content=?, file1=?, filename=?";
-	final static String TOUR_SELECT_ONE = "select * from tour where no=?";
-	final static String TOUR_DELETE = "delete from tour where no=?";
-	final static String TOUR_SELECT_ALL = "select * from tour";
-	final static String TOUR_INSERT ="insert into tour(title,content,file1,filename) values(?,?,?,?)";
+	final static String LOAD_LAST_NO = "select no from tour order by no desc limit 1";
+	final static String FILE_UPLOAD = "insert into pic(tourno, picname, pos) values (?,?,?)";
+	final static String JSON_PICLIST = "select * from pic where tourno=?";
+	final static String ADD_TOUR = "insert into tour(tourno, cate, place, comment1, comment2) values (?,?,?,?,?)";
+	final static String TOUR_LIST_ALL = "select * from tour";
+	final static String TOUR_CATE_LIST = "select a.no, a.tourno, a.cate, a.place, a.comment1, a.comment2, b.picname, b.pos from tour a inner join pic b on a.tourno=b.tourno where a.cate=? and b.pos=1";
+	final static String TOUR_LIST_DETAIL = "select * from tour where no=?";
+	final static String TOUR_DEL = "delete from tour where no=?";
+	final static String MODIFY_TOUR = "update tour set tourno=?, cate=?, place=?, comment1=?, comment2=? where no=?";
 	
 	
 	public final static String TEST_SELECT_ONE ="select * from test where name=?";

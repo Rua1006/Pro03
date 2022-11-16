@@ -28,6 +28,10 @@ public class Maria {
 	final static String TOUR_SELECT_ALL = "select * from tour";
 	final static String TOUR_INSERT ="insert into tour(title,content,file1,filename) values(?,?,?,?)";
 	
+	
+	public final static String TEST_SELECT_ONE ="select * from test where name=?";
+	public final static String TEST_SELECT_ALL ="select * from test";
+	
 	static final String DRIVER = "org.mariadb.jdbc.Driver";
 	static final String URL = "jdbc:mariadb://127.0.0.1:3308/goverment?serverTimezone=Asia/Seoul";
 	static final String USER = "root";
@@ -38,7 +42,6 @@ public class Maria {
 		Connection con = DriverManager.getConnection(URL, USER, PW);
 		return con;
 	}
-	
 	public static void close(PreparedStatement pstmt, Connection con) {
 		if(pstmt!=null){
 			try {
@@ -55,7 +58,6 @@ public class Maria {
 			}
 		}
 	}
-	
 	public static void close(ResultSet rs, PreparedStatement pstmt, Connection con) {
 		if(rs!=null){
 			try {

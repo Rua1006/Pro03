@@ -16,7 +16,7 @@ public class UserDAO {
 	private ResultSet rs = null;
 	String key ="%02x";
 	
-	public int idCheckPro(String id){	//중복 아이디 체크 / 회원가입시 가입 전 체크
+	public int idCheckPro(String id){
 		int cnt = 0;
 		try{
 			con = Maria.getConnection();
@@ -66,7 +66,6 @@ public class UserDAO {
 		String qpw = "";
 		try{
 			con = Maria.getConnection();
-			//로그인
 			pstmt = con.prepareStatement(Maria.VISIT_UPDATE);
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();

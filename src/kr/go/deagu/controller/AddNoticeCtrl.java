@@ -16,8 +16,6 @@ import kr.go.deagu.model.NoticeDAO;
 public class AddNoticeCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-   
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");

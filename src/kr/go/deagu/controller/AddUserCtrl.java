@@ -13,18 +13,15 @@ import com.crypto.util.AES256;
 import kr.go.deagu.dto.UserDTO;
 import kr.go.deagu.model.UserDAO;
 
-
 @WebServlet("/AddUserCtrl.do")
 public class AddUserCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		//필요한거 id, pw, name, birth, email, tel, address
-		
+	
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
@@ -58,7 +55,7 @@ public class AddUserCtrl extends HttpServlet {
 			user.setId(id);
 			user.setPw(encrypted);
 			user.setName(name);
-			user.setAddress(address1 + "<br>" +address2);   //주소 줄 바꿈하기 위해 쓰는 경우
+			user.setAddress(address1 + "<br>" +address2);
 			user.setTel(tel);
 			user.setEmail(email);
 			user.setBirth(birth);

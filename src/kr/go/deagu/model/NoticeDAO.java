@@ -47,12 +47,10 @@ public class NoticeDAO {
 		NoticeDTO dto = new NoticeDTO();
 		try {
 			con = Maria.getConnection();
-			//읽은 횟수 증가
 			pstmt = con.prepareStatement(Maria.NOTICE_VISITED_UP);
 			pstmt.setInt(1, no);
 			pstmt.executeUpdate();
 			pstmt.close();
-			//해당 레코드를 검색
 			pstmt = con.prepareStatement(Maria.NOTICE_SELECT_ONE);
 			pstmt.setInt(1, no);		
 			rs = pstmt.executeQuery();
@@ -76,13 +74,11 @@ public class NoticeDAO {
 			Maria.close(rs, pstmt, con);
 		}
 		return dto;
-	}
-	
+	}	
 	public int addNotice(NoticeDTO dto){
 		int cnt = 0;
 		try {
 			con = Maria.getConnection();
-			//글 추가
 			pstmt = con.prepareStatement(Maria.NOTICE_INSERT);
 			pstmt.setString(1, dto.getTitle());
 			pstmt.setString(2, dto.getContent());
@@ -104,7 +100,6 @@ public class NoticeDAO {
 		int cnt = 0;
 		try {
 			con = Maria.getConnection();
-			//글 추가
 			pstmt = con.prepareStatement(Maria.NOTICE_DELEDTE);
 			pstmt.setInt(1, no);
 			cnt = pstmt.executeUpdate();
@@ -121,12 +116,10 @@ public class NoticeDAO {
 		}
 		return cnt;
 	}
-
 	public int modifyNotice(NoticeDTO dto) {
 		int cnt = 0;
 		try {
 			con = Maria.getConnection();
-			//글 추가
 			pstmt = con.prepareStatement(Maria.NOTICE_UPDATE);
 			pstmt.setString(1, dto.getTitle());
 			pstmt.setString(2, dto.getContent());

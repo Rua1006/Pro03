@@ -40,19 +40,19 @@
 		      <td>
 				<c:set var="cate" value="${dto.cate }" /> 
 				<c:if test="${cate eq 'A' }">
-				<span>관광</span>
+				<span>명품관광코스</span>
 				</c:if>
 				<c:if test="${cate eq 'B' }">
-				<span>체험</span>
+				<span>관광명소</span>
 				</c:if>
 				<c:if test="${cate eq 'C' }">
-				<span>행사</span>
-				</c:if>
-				<c:if test="${grade eq 'D' }">
 				<span>축제</span>
 				</c:if>
-				<c:if test="${cate eq 'E' }">
+				<c:if test="${cate eq 'D' }">
 				<span>숙박</span>
+				</c:if>
+				<c:if test="${cate eq 'E' }">
+				<span>식당</span>
 				</c:if>
 				<c:if test="${cate eq 'F' }">
 				<span>음식</span>

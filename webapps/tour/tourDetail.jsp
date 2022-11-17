@@ -13,6 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>장소 상세보기</title>
     <jsp:include page="/head.jsp" />
+    
+	<style>
+	.table {line-height: 50px; word-break: keep-all; border-top : 1px solid #333; border-bottom: 1px solid #333;}
+	
+	</style>
   </head>
   <body>
   <jsp:include page="/header.jsp" />
@@ -23,19 +28,19 @@
 	    <li><a href="${path1 }/GetTourCateListCtrl.do?cate=${dto.cate }">
  			<c:set var="cate" value="${dto.cate }" /> 
 			<c:if test="${cate eq 'A' }">
-			<span>관광</span>
+			<span>명품관광코스</span>
 			</c:if>
 			<c:if test="${cate eq 'B' }">
-			<span>체험</span>
+			<span>관광명소</span>
 			</c:if>
 			<c:if test="${cate eq 'C' }">
-			<span>행사</span>
-			</c:if>
-			<c:if test="${grade eq 'D' }">
 			<span>축제</span>
 			</c:if>
-			<c:if test="${cate eq 'E' }">
+			<c:if test="${cate eq 'D' }">
 			<span>숙박</span>
+			</c:if>
+			<c:if test="${cate eq 'E' }">
+			<span>식당</span>
 			</c:if>
 			<c:if test="${cate eq 'F' }">
 			<span>음식</span>
@@ -73,7 +78,7 @@
 		  </tbody>
 		</table>
       	</div>
-		<table class="table">
+		<table class="table is-striped">
 		   <tbody>
 		    <tr>
 		      <th style="min-width:180px;">번호</th>
@@ -81,33 +86,33 @@
 		    </tr>
 		    <tr>
 		      <th>분류</th>
-		      <td>
-   				<c:set var="cate" value="${dto.cate }" /> 
-				<c:if test="${cate eq 'A' }">
-				<span>관광</span>
-				</c:if>
-				<c:if test="${cate eq 'B' }">
-				<span>체험</span>
-				</c:if>
-				<c:if test="${cate eq 'C' }">
-				<span>행사</span>
-				</c:if>
-				<c:if test="${grade eq 'D' }">
-				<span>축제</span>
-				</c:if>
-				<c:if test="${cate eq 'E' }">
-				<span>숙박</span>
-				</c:if>
-				<c:if test="${cate eq 'F' }">
-				<span>음식</span>
-				</c:if>
-				<c:if test="${cate eq 'G' }">
-				<span>쇼핑</span>
-				</c:if>
-				<c:if test="${cate eq 'H' }">
-				<span>기타</span>
-				</c:if>
-		      </td>
+			      <td>
+	   				<c:set var="cate" value="${dto.cate }" /> 
+					<c:if test="${cate eq 'A' }">
+					<span>명품관광코스</span>
+					</c:if>
+					<c:if test="${cate eq 'B' }">
+					<span>관광명소</span>
+					</c:if>
+					<c:if test="${cate eq 'C' }">
+					<span>축제</span>
+					</c:if>
+					<c:if test="${cate eq 'D' }">
+					<span>숙박</span>
+					</c:if>
+					<c:if test="${cate eq 'E' }">
+					<span>식당</span>
+					</c:if>
+					<c:if test="${cate eq 'F' }">
+					<span>음식</span>
+					</c:if>
+					<c:if test="${cate eq 'G' }">
+					<span>쇼핑</span>
+					</c:if>
+					<c:if test="${cate eq 'H' }">
+					<span>기타</span>
+					</c:if>
+			      </td>
 		    </tr>
 		    <tr>
 		      <th>장소 번호</th>

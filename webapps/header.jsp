@@ -61,7 +61,7 @@
 		</div>
 		<div class="navbar-item has-dropdown is-hoverable">
 			<a class="navbar-link"  href="${path2 }/GetTourCateListCtrl.do?cate=F">
-		 	명품관광코스
+		 	음식
 			</a>
 			<div class="navbar-dropdown cate" id="cate06">
 				    
@@ -145,19 +145,19 @@
 					if(key=="data"){
 						for(var i=0;i<value.length;i++){
 							if(value[i].cate=="A"){
-								$("#cate01").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+								$("#cate01").append("<a class='navbar-item' href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
 							} else if(value[i].cate=="B"){
-								$("#cate02").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+								$("#cate02").append("<a class='navbar-item' href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
 							} else if(value[i].cate=="C"){
-								$("#cate03").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+								$("#cate03").append("<a class='navbar-item' href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
 							} else if(value[i].cate=="D"){
-								$("#cate04").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+								$("#cate04").append("<a class='navbar-item' href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
 							} else if(value[i].cate=="E"){
-								$("#cate05").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+								$("#cate05").append("<a class='navbar-item' href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
 							} else if(value[i].cate=="F"){
-								$("#cate06").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+								$("#cate06").append("<a class='navbar-item' href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
 							} else if(value[i].cate=="G"){
-								$("#cate07").append("<a href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+								$("#cate07").append("<a class='navbar-item' href='${path2 }/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
 							}
 						}
 					}

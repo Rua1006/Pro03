@@ -27,11 +27,11 @@
 					  	<div class="select">
 						  <select name="cate" id="cate" class="select" onchange="changeTourNo()" required>
 						  	<option value="">선택</option>
-						    <option value="A">관광</option>
-						    <option value="B">체험</option>
-						    <option value="C">행사</option>
-						    <option value="D">축제</option>
-						    <option value="E">숙박</option>
+						    <option value="A">명품관광코스</option>
+						    <option value="B">관광명소</option>
+						    <option value="C">축제</option>
+						    <option value="D">숙박</option>
+						    <option value="E">식당</option>
 						    <option value="F">음식</option>
 						    <option value="G">쇼핑</option>
 						    <option value="H">기타</option>
@@ -51,8 +51,7 @@
 					    </span>
 					  </div>
 					  <p class="help is-success">장소명을 입력하세요</p>
-					</div>
-					
+					</div>					
 					<div class="field">
 					  <label class="label">장소 주요설명</label>
 					  <div class="control has-icons-left has-icons-right">
@@ -60,7 +59,6 @@
 					  </div>
 					  <p class="help is-success">장소의 주요설명을 넣어 주시기 바랍니다.</p>
 					</div>
-
 					<div class="field">
 					  <label class="label">장소 상세설명</label>
 					  <div class="control has-icons-left has-icons-right">
@@ -68,15 +66,13 @@
 					  </div>
 					  <p class="help is-success">장소의 상세설명을 넣어 주시기 바랍니다.</p>
 					</div>
-
 					<div class="field">
 					  <label class="label">이미지 추가</label>
 					  <div class="control">
 						<input type="hidden" name="pic_ck1" id="pic_ck1" value="no"/>
 						<button type="button" class="button is-link" onclick="imgUpload(1)">이미지 추가</button>
 					  </div>
-					</div>
-									
+					</div>				
 					<div class="field is-grouped">
 					  <div class="control">
 					    <button type="submit" class="button is-link">장소 등록</button>

@@ -23,19 +23,19 @@
 	    <li class="is-active"><a href="#" aria-current="page">
  			<c:set var="cate" value="${placeCate }" /> 
 			<c:if test="${cate eq 'A' }">
-			<span>관광</span>
+			<span>명품관광코스</span>
 			</c:if>
 			<c:if test="${cate eq 'B' }">
-			<span>체험</span>
+			<span>관광명소</span>
 			</c:if>
 			<c:if test="${cate eq 'C' }">
-			<span>행사</span>
-			</c:if>
-			<c:if test="${grade eq 'D' }">
 			<span>축제</span>
 			</c:if>
-			<c:if test="${cate eq 'E' }">
+			<c:if test="${cate eq 'D' }">
 			<span>숙박</span>
+			</c:if>
+			<c:if test="${cate eq 'E' }">
+			<span>식당</span>
 			</c:if>
 			<c:if test="${cate eq 'F' }">
 			<span>음식</span>
@@ -62,19 +62,19 @@
 			          <p class="subtitle">
 			 			<c:set var="cate" value="${placeCate }" /> 
 						<c:if test="${cate eq 'A' }">
-						<span>관광</span>
+						<span>명품관광코스</span>
 						</c:if>
 						<c:if test="${cate eq 'B' }">
-						<span>체험</span>
+						<span>관광명소</span>
 						</c:if>
 						<c:if test="${cate eq 'C' }">
-						<span>행사</span>
-						</c:if>
-						<c:if test="${grade eq 'D' }">
 						<span>축제</span>
 						</c:if>
-						<c:if test="${cate eq 'E' }">
+						<c:if test="${cate eq 'D' }">
 						<span>숙박</span>
+						</c:if>
+						<c:if test="${cate eq 'E' }">
+						<span>식당</span>
 						</c:if>
 						<c:if test="${cate eq 'F' }">
 						<span>음식</span>
@@ -90,7 +90,7 @@
 			            <img src="${path1 }/upload/${dto.imgURL }" alt="${dto.place }">
 			          </figure>
 			          <div class="content" style="margin:10px;">
-			          	<p class="item_com">${dto.comment2 }</p>
+			          	<p class="item_com" style="display:block; overflow: hidden; white-space: nowrap;  text-overflow: ellipsis;">${dto.comment1 }</p>
 			          </div>
 			          <a href="${path1 }/GetTourDetailCtrl.do?no=${dto.no }" class="button is-primary">자세히 보기</a>
 			        </article>

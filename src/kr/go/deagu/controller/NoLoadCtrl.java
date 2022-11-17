@@ -1,11 +1,17 @@
 package kr.go.deagu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import kr.go.deagu.model.TourDAO;
+
+import org.json.JSONObject;
 
 
 @WebServlet("/NoLoadCtrl.do")
@@ -18,8 +24,22 @@ public class NoLoadCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		
-		
+		TourDAO dao = new TourDAO();
+		int firstNo = dao.loadLastNo();
+		String no ="";
+		if(firstNo<=9){
+			no = "000"+firstNo;
+		}else if(firstNo<=99){
+			no = "00"+firstNo;
+		}else if(firstNo<=999){
+			no = "0"+firstNo;
+		}else {
+			no = ""+firstNo;
+		}
+		JSONObject json = new JSONObject();
+		json.put("no", no);
+		PrintWriter out = response.getWriter();
+		out.println(json.toString());
 	}
 
 }

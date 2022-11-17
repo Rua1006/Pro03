@@ -37,20 +37,37 @@ create table user(
 SELECT * FROM user;
 
 CREATE TABLE pic(
-NO INT PRIMARY KEY AUTO_INCREMENT,
-tourno VARCHAR(20) NOT NULL,
-picname VARCHAR(100) NOT NULL,
-pos VARCHAR(300)
+	NO INT PRIMARY KEY AUTO_INCREMENT,
+	tourno VARCHAR(20) NOT NULL,
+	picname VARCHAR(100) NOT NULL,
+	pos int
 );
+
+DROP TABLE pic;
+
+
+SELECT * FROM pic;
+
+
 
 CREATE TABLE tour(
-no INT PRIMARY KEY AUTO_INCREMENT,
-title VARCHAR(20) NOT NULL,
-content VARCHAR(1000) NOT NULL,
-file1 VARCHAR(100),
-filename VARCHAR(100)
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	tourno VARCHAR(20),
+	cate VARCHAR(20),
+	place VARCHAR(100),
+	COMMENT1 VARCHAR(1000),
+	COMMENT2 VARCHAR(1000)
 );
 
+
+
+select a.no, a.tourno, a.cate, a.place, a.comment1, a.comment2, b.picname, b.pos from tour a inner join pic b on a.tourno=b.tourno where a.cate="A" and b.pos=1;
+
+
+SELECT * FROM tour;
+
 DROP TABLE tour;
+
+COMMIT;
 
 COMMIT;

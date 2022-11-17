@@ -1,22 +1,27 @@
 package kr.go.deagu.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 
-import javax.servlet.ServletContext;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
 import kr.go.deagu.dto.PicDTO;
+import kr.go.deagu.model.TourDAO;
+import net.sf.json.JSONObject;
 
 import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+
 
 
 @WebServlet("/ImgUploadCtrl.do")
@@ -29,45 +34,68 @@ public class ImgUploadCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		int pos = Integer.parseInt(request.getParameter("pos"));
-		int tourno = Integer.parseInt(request.getParameter("tourno"));
-		String file1 = "", fileName = "";
-		String pat = "./upload/";
-		String realPat = "D:\\kbs\\pro01\\pro02\\WebContent\\upload";
-		String saveDir = "upload";
-		String encyType = "UTF-8";
-		String realPath = "";
 		int maxSize = 10*1024*1024;
-		String pdata = request.getParameter("picname");
+		String saveFolder ="D:/kbs/pro01/pro03/webapps/upload";
+		String uploadPath = request.getRealPath("/upload");
 		
-		try{
-			ServletContext context = request.getServletContext();
-			realPath = context.getRealPath(saveDir);
+		TourDAO dao = new TourDAO();
+		PicDTO dto = new PicDTO();	
+		
+		try{		
+			MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF-8");
 			
-			MultipartRequest multi = new MultipartRequest(
-					request, 
-					pat, 
-					maxSize, 
-					"UTF-8",
-					new DefaultFileRenamePolicy());
-			
-			PicDTO dto = new PicDTO();	
-			
-			pos = Integer.parseInt(multi.getParameter("pos"));
-			tourno = Integer.parseInt(multi.getParameter("tourno"));
-			file1 = multi.getParameter("file1");
-			fileName = multi.getParameter("fileName");
+			int pos = Integer.parseInt(multi.getParameter("pos"));
+			String tourno = multi.getParameter("tourno");
 			
 			Enumeration files = multi.getFileNames();
 			
+			String file1 = (String)files.nextElement();
+			String fileName1 = multi.getFilesystemName(file1);
 			
-		}catch(Exception e){
+			
+			String imageURL = uploadPath + fileName1;
+			
+			try{
+				File imgURL = new File(imageURL);
+				String extension = imageURL.substring(imageURL.lastIndexOf(".")+1);
+				
+				BufferedImage image = ImageIO.read(imgURL);
+				File file = new File(saveFolder + fileName1);
+				if(!file.exists()){
+					file.mkdirs();
+				}
+				
+				ImageIO.write(image, extension, file);
+				System.out.println("이미지 업로드 성공");
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			dto.setPicname(fileName1);
+			dto.setPos(pos);
+			dto.setTourno(tourno);
+		
+			int cnt = dao.fileUpload(dto);
+			if(cnt>=1){
+				System.out.println("업로드 성공");
+			} else {
+				System.out.println("업로드 실패");
+				response.sendRedirect("./tour/imgUpload.jsp?no="+pos+"&tourno="+tourno);
+			}
+			
+			PrintWriter out = response.getWriter();
+			TourDAO tour = new TourDAO();
+			ArrayList<PicDTO> picList = tour.JSONPicList(tourno);
+			
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("picList", picList);
+			
+			JSONObject json = new JSONObject();
+			json.putAll(map);
+			out.println(json);
+			
+		} catch(Exception e){
 			e.printStackTrace();
 		}
-		JSONObject json = new JSONObject();
-		json.put("tourno", tourno);
-		PrintWriter out = response.getWriter();
-		out.println(json.toString());
 	}
-
 }

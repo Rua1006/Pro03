@@ -10,5 +10,10 @@
 #logo { display:block; width:217px; height:63px; background-image:url("${path0 }/data/logo.png");
 background-size:100% auto; background-repeat:no-repeat;}
 #nav { border-bottom:3px solid #ddd; }
+.navbar-menu .navbar-link {text-align: center;}
+.tile:not(.is-child) {display: flex; flex-wrap: wrap;}
+.tile {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.panel-heading {text-align: center;}
+.panel-block {text-align: center;}
 </style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>

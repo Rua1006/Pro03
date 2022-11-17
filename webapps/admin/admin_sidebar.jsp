@@ -11,27 +11,15 @@
     관리자 메뉴
   </p>
   <a class="panel-block is-active" href="${path1 }/GetUserListCtrl.do">
-    <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
-    </span>
-    회원관리
+	회원관리
+  </a> 
+  <a class="panel-block" href="${path1 }/GetTourListCtrl.do">
+  	관광서비스 관리
   </a>
   <a class="panel-block" href="${path1 }/GetNoticeListCtrl.do">
-    <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
-    </span>
-    게시판관리
+	게시판관리
   </a>
   <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
-    </span>
-   메뉴3
-  </a>
-  <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
-    </span>
-    메뉴4
+  	더 알아보기
   </a>
 </article>

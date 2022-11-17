@@ -60,19 +60,19 @@
 			      	<input type="hidden" name="cate0" id="cate0" value="${dto.cate }" />
 	   				<c:set var="cate" value="${dto.cate }" /> 
 					<c:if test="${cate eq 'A' }">
-					<span>관광</span>
+					<span>명품관광코스</span>
 					</c:if>
 					<c:if test="${cate eq 'B' }">
-					<span>체험</span>
+					<span>관광명소</span>
 					</c:if>
 					<c:if test="${cate eq 'C' }">
-					<span>행사</span>
-					</c:if>
-					<c:if test="${grade eq 'D' }">
 					<span>축제</span>
 					</c:if>
-					<c:if test="${cate eq 'E' }">
+					<c:if test="${grade eq 'D' }">
 					<span>숙박</span>
+					</c:if>
+					<c:if test="${cate eq 'E' }">
+					<span>식당</span>
 					</c:if>
 					<c:if test="${cate eq 'F' }">
 					<span>음식</span>
@@ -87,11 +87,11 @@
 					  	<div class="select">
 						  <select name="cate" id="cate" class="select" onchange="changeTourNo()" required>
 						  	<option value="">선택</option>
-						    <option value="A">관광</option>
-						    <option value="B">체험</option>
-						    <option value="C">행사</option>
-						    <option value="D">축제</option>
-						    <option value="E">숙박</option>
+						    <option value="A">명품관광코스</option>
+						    <option value="B">관광명소</option>
+						    <option value="C">축제</option>
+						    <option value="D">숙박</option>
+						    <option value="E">식당</option>
 						    <option value="F">음식</option>
 						    <option value="G">쇼핑</option>
 						    <option value="H">기타</option>

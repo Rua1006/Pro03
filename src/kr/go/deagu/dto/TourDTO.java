@@ -8,6 +8,8 @@ public class TourDTO {
 	private String comment1;
 	private String comment2;
 	private String imgURL;
+	private String addr;
+
 	public int getNo() {
 		return no;
 	}
@@ -50,10 +52,18 @@ public class TourDTO {
 	public void setImgURL(String imgURL) {
 		this.imgURL = imgURL;
 	}
+	
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 	@Override
 	public String toString() {
 		return "TourDTO [no=" + no + ", tourno=" + tourno + ", cate=" + cate
 				+ ", place=" + place + ", comment1=" + comment1 + ", comment2="
-				+ comment2 + "]";
+				+ comment2 + ", imgURL=" + imgURL + ", addr=" + addr + "]";
 	}
+	
 }

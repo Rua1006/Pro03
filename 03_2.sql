@@ -63,6 +63,40 @@ CREATE TABLE tour(
 
 select a.no, a.tourno, a.cate, a.place, a.comment1, a.comment2, b.picname, b.pos from tour a inner join pic b on a.tourno=b.tourno where a.cate="A" and b.pos=1;
 
+select 
+  a.no, 
+  a.tourno, 
+  a.cate, 
+  a.place, 
+  a.comment1, 
+  a.comment2, 
+  b.picname, 
+  b.pos 
+from 
+  (select * from tour limit 1) a 
+  inner join pic b on a.tourno = b.tourno 
+where 
+  a.cate = "A" 
+  and b.pos = 1;
+  
+  
+  
+  select 
+  a.no, 
+  a.tourno, 
+  a.cate, 
+  a.place, 
+  a.comment1, 
+  a.comment2, 
+  b.picname, 
+  b.pos 
+from 
+  tour a 
+  inner join (select * from pic limit 1) b on a.tourno = b.tourno 
+where 
+  a.cate = "A" 
+  and b.pos = 1;
+
 
 SELECT * FROM tour;
 

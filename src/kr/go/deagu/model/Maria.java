@@ -27,6 +27,10 @@ public class Maria {
 	final static String ADD_TOUR = "insert into tour(tourno, cate, place, comment1, comment2) values (?,?,?,?,?)";
 	final static String TOUR_LIST_ALL = "select * from tour";
 	final static String TOUR_CATE_LIST = "select a.no, a.tourno, a.cate, a.place, a.comment1, a.comment2, b.picname, b.pos from tour a inner join pic b on a.tourno=b.tourno where a.cate=? and b.pos=1";
+	
+	final static String TOUR_SEARCH_PLACE_LIST = "select * from tour where place like CONCAT('%',?,'%')"; //'%'+?+'%' 두가지중에 선택
+	final static String TOUR_SEARCH_COMMENT_LIST = "select * from tour where comment2 like ?";
+	final static String TOUR_SEARCH_ALL_LIST = "select * from tour where place like ? or comment2 like ?";
 	final static String TOUR_LIST_DETAIL = "select * from tour where no=?";
 	final static String TOUR_DEL = "delete from tour where no=?";
 	final static String MODIFY_TOUR = "update tour set tourno=?, cate=?, place=?, comment1=?, comment2=? where no=?";

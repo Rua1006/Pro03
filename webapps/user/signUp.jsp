@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+ <jsp:include page="/head.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <style>
@@ -96,6 +97,7 @@
 	</form>
 	<script>
 	$(document).ready(function(){
+		console.log("11");
 		$("#id").keyup(function(){
 			$("#idck").val("no");
 			if($(this).val()!=""){

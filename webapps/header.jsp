@@ -115,7 +115,7 @@
 	   <a href="${path2 }/UserInfoCtrl.do" class="button is-light">
 	     <strong>유저정보</strong>
 	   </a>
-	   <a href="${path2 }/UserLogoutCtrl.do" class="button is-light">
+	   <a href="${path2 }/UserLogOutCtrl.do" class="button is-light">
 	   	 로그아웃
 	   </a>
 		<c:if test='${sid.equals("admin")}'>

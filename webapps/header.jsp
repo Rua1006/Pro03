@@ -83,15 +83,15 @@
 		 	더 알아보기
 			</a>
 			<div class="navbar-dropdown">
-	          <a class="navbar-item">
-	            About
+	          <a class="navbar-item" href="<%=request.getContextPath()%>/GetQnaListCtrl.do">
+	            QNA
 	          </a>
 	          <hr class="navbar-divider">
-	          <a class="navbar-item">
-	            Contact
+	          <a class="navbar-item" href="<%=request.getContextPath()%>/GetImpressListCtrl.do">
+	 			이용후기
 	          </a>
 	          <hr class="navbar-divider">
-	          <a class="navbar-item">
+	          <a class="navbar-item" >
 	            Report an issue
 	          </a>
 	       	</div>

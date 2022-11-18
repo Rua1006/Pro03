@@ -28,7 +28,7 @@
 		<form name="frm1" id="frm1" class="search_form" action="${path1 }/GetPlaceSearchCtrl.do" method="get">
 			<div class="select inline">
 				<select name="sel" id="sel" required>
-					<option value="">선택</option>
+					<option value="">옵션 선택</option>
 					<option value="place">장소명</option>
 					<option value="comment2">장소설명</option>
 					<option value="place+comment2">장소명+장소설명</option>

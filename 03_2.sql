@@ -59,49 +59,89 @@ CREATE TABLE tour(
 	COMMENT2 VARCHAR(1000)
 );
 
+CREATE TABLE qna(
+	no int primary key auto_increment,
+   title varchar(100) not null,
+   content varchar(1000) not null,
+   author varchar(20) not null,
+   resdate datetime default now(),
+   lev int default 0,            
+   parno int not null,          
+   sec char(1)      
+);
 
+INSERT INTO qna(title, content, author,parno,sec) VALUES ('테스트','테스트내용','admin','1','1');
 
-select a.no, a.tourno, a.cate, a.place, a.comment1, a.comment2, b.picname, b.pos from tour a inner join pic b on a.tourno=b.tourno where a.cate="A" and b.pos=1;
+alter table qna add column visited int default 0; 
 
-select 
-  a.no, 
-  a.tourno, 
-  a.cate, 
-  a.place, 
-  a.comment1, 
-  a.comment2, 
-  b.picname, 
-  b.pos 
-from 
-  (select * from tour limit 1) a 
-  inner join pic b on a.tourno = b.tourno 
-where 
-  a.cate = "A" 
-  and b.pos = 1;
+SELECT * FROM qna;
+
+CREATE TABLE impress(
+	NO INT PRIMARY KEY AUTO_INCREMENT,
+	cate VARCHAR(20),
+	tourno VARCHAR(20),
+	id VARCHAR(30),
+	content VARCHAR(1000),
+	star DOUBLE,
+	imgSrc VARCHAR(150),
+	regdate DATETIME DEFAULT NOW()
+);
+
+INSERT INTO impress(cate, tourno, id, content, star, imgSrc) VALUES('A','1','bskang','테스트내용','1.5','image1.jpg');
+
+SELECT * FROM impress;
+
+SELECT 
+	a.no, 
+	a.tourno, 
+	a.cate, 
+	a.place, 
+	a.comment1, 
+	a.comment2, 
+	b.picname, 
+	b.pos 
+FROM 
+	tour a 
+	inner join pic b on a.tourno=b.tourno 
+WHERE 
+	a.cate="A" 
+	and b.pos=1;
+
+SELECT 
+	a.no, 
+  	a.tourno, 
+  	a.cate, 
+  	a.place, 
+  	a.comment1, 
+  	a.comment2, 
+  	b.picname, 
+  	b.pos 
+FROM 
+  	(select * from tour limit 1) a 
+  	inner join pic b on a.tourno = b.tourno 
+WHERE 
+  	a.cate = "A" 
+  	and b.pos = 1;
   
   
-  
-  select 
-  a.no, 
-  a.tourno, 
-  a.cate, 
-  a.place, 
-  a.comment1, 
-  a.comment2, 
-  b.picname, 
-  b.pos 
-from 
+SELECT 
+  	a.no, 
+  	a.tourno, 
+  	a.cate, 
+  	a.place, 
+  	a.comment1, 
+  	a.comment2, 
+  	b.picname, 
+  	b.pos 
+FROM 
   tour a 
   inner join (select * from pic limit 1) b on a.tourno = b.tourno 
-where 
+WHERE 
   a.cate = "A" 
   and b.pos = 1;
-
 
 SELECT * FROM tour;
 
 DROP TABLE tour;
-
-COMMIT;
 
 COMMIT;

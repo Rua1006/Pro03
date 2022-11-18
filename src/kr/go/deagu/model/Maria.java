@@ -35,6 +35,21 @@ public class Maria {
 	final static String TOUR_DEL = "delete from tour where no=?";
 	final static String MODIFY_TOUR = "update tour set tourno=?, cate=?, place=?, comment1=?, comment2=? where no=?";
 	
+	final static String QNA_SELECT_ALL = "select * from qna order by resdate desc";
+	final static String QNA_SELECT_ONE = "select * from qna where no=?";
+	final static String QNA_INSERT = "insert into qna(title, content, author, sec, lev) values (?,?,?,?,?)";
+	final static String QNA_DELETE = "delete from qna where no=?";
+	final static String QNA_DELETE_RE = "delete from qna where paro=";
+	final static String QNA_UPDATE = "update qna set title=?, content=? where no=?";
+	final static String QNA_VISITED_UP = "update qna set visited=visited+1 where no=?";
+	final static String QNA_LIMIT = "select no from qna order by resdate desc limit 1";
+	final static String QNA_UPDATE_RE = "update qna set parno=? where no=?";
+	
+	final static String IMPRESS_SELECT_ALL = "select * from impress order by regdate desc";
+	final static String IMPRESS_SELECT_ONE = "select * from impress where no=?";
+	final static String IMPRESS_INSERT = "insert into impress(cate, tourno, id, content, star, imgSrc) values(?,?,?,?,?,?)";
+	final static String IMPRESS_UPDATE = "update impress set cate=?, tourno=?, content=?, star=? imgSrc=? where no=?";
+	final static String IMPRESS_DELETE = "delete from impress where no=?";
 	
 	public final static String TEST_SELECT_ONE ="select * from test where name=?";
 	public final static String TEST_SELECT_ALL ="select * from test";

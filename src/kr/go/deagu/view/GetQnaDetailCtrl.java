@@ -1,7 +1,6 @@
 package kr.go.deagu.view;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,24 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import kr.go.deagu.dto.QnaDTO;
 import kr.go.deagu.model.QnaDAO;
 
-
-@WebServlet("/GetQnaListCtrl.do")
-public class GetQnaListCtrl extends HttpServlet {
+@WebServlet("/GetQnaDetailCtrl.do")
+public class GetQnaDetailCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-				
+		int no = Integer.parseInt(request.getParameter("no"));
+			
+		//결과를 데이터베이스로 부터 받아서 VO에 저장
 		QnaDAO dao = new QnaDAO();
-		//결과를 데이터베이스로 부터 받아서 리스트로 저장
-		ArrayList<QnaDTO> qnaList = dao.getQnaList();
+		QnaDTO vo = dao.getQna(no);
 
-		request.setAttribute("qnaList", qnaList);
+		request.setAttribute("vo", vo);
 		
-		//qna/qnaList.jsp 에 포워딩
-		RequestDispatcher view = request.getRequestDispatcher("./qna/qnaList.jsp");
-		view.forward(request, response);			
+		//qna/qnaDetail.jsp 에 포워딩
+		RequestDispatcher view = request.getRequestDispatcher("./qna/qnaDetail.jsp");
+		view.forward(request, response);	
 	}
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.go.deagu.model.ImpressDAO;
 
-@WebServlet("/DelImpressCtrl")
+@WebServlet("/DelImpressCtrl.do")
 public class DelImpressCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,12 +22,12 @@ public class DelImpressCtrl extends HttpServlet {
 		int no = Integer.parseInt(request.getParameter("no"));
 		
 		ImpressDAO dao = new ImpressDAO();
-		int cnt = dao.delImp(no);
+		int cnt = dao.delImpress(no);
 		
 		if(cnt>=1){
-			response.sendRedirect("GetImpreeListCtrl.do");
+			response.sendRedirect("GetImpressListCtrl.do");
 		} else {
-			response.sendRedirect("GetImpressCtrl.do?no="+no);
+			response.sendRedirect("GetImpressListCtrl.do");
 		}
 	}
 

@@ -8,45 +8,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.deagu.dto.ImpressDTO;
-import kr.go.deagu.model.ImpressDAO;
+import kr.go.deagu.dto.QnaDTO;
+import kr.go.deagu.model.QnaDAO;
 
-
-@WebServlet("/ModifyImpressCtrl.do")
-public class ModifyImpressCtrl extends HttpServlet {
+@WebServlet("/UpdateQnaProCtrl.do")
+public class UpdateQnaProCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
 		int no = Integer.parseInt(request.getParameter("no"));
-		String cate = request.getParameter("cate");
-		String tourno = request.getParameter("tourno");
-		String id = request.getParameter("id");
+		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		Double star = Double.parseDouble(request.getParameter("star"));
-		String imgSrc = request.getParameter("imgSrc");
+		String author = request.getParameter("author");
+		String sec = request.getParameter("sec");
+		int lev = Integer.parseInt(request.getParameter("lev"));
 		
-		ImpressDTO dto = new ImpressDTO();
-		dto.setCate(cate);
-		dto.setTourno(tourno);
-		dto.setId(id);
+		QnaDTO dto = new QnaDTO();
+		dto.setNo(no);
+		dto.setTitle(title);
 		dto.setContent(content);
-		dto.setStar(star);
-		dto.setImgSrc(imgSrc);
+		dto.setAuthor(author);
+		dto.setSec(sec);
+		dto.setLev(lev);
 		
-		ImpressDAO dao = new ImpressDAO();
-		int cnt = dao.modifyImp(dto);
-		
+		QnaDAO dao = new QnaDAO();
+		int cnt = dao.modifyQna(dto);
+			
 		if(cnt>=1){
-			response.sendRedirect("GetImpressListCtrl.do");
+			response.sendRedirect("GetQnaListCtrl.do");
 		} else {
-			response.sendRedirect("ModifyImpressCtrl?no="+no);
+			response.sendRedirect("GetQnaDetailCtrl.do?no="+no);
 		}
-		
-		
 	}
-
 }

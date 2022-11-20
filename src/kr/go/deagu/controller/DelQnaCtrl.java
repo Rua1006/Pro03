@@ -1,36 +1,33 @@
-package kr.go.deagu.view;
+package kr.go.deagu.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.deagu.dto.QnaDTO;
 import kr.go.deagu.model.QnaDAO;
 
-
-@WebServlet("/GetQnaListCtrl.do")
-public class GetQnaListCtrl extends HttpServlet {
+@WebServlet("/DeleteQnaCtrl.do")
+public class DelQnaCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-				
-		QnaDAO dao = new QnaDAO();
-		//결과를 데이터베이스로 부터 받아서 리스트로 저장
-		ArrayList<QnaDTO> qnaList = dao.getQnaList();
+		int no = Integer.parseInt(request.getParameter("no"));
+		int parno = Integer.parseInt(request.getParameter("parno"));
 
-		request.setAttribute("qnaList", qnaList);
+		QnaDAO dao = new QnaDAO();
+		int cnt = dao.delQna(no, parno); 
 		
-		//qna/qnaList.jsp 에 포워딩
-		RequestDispatcher view = request.getRequestDispatcher("./qna/qnaList.jsp");
-		view.forward(request, response);			
+		if(cnt>=1){
+			response.sendRedirect("GetQnaListCtrl.do");
+		} else {
+			response.sendRedirect("GetQnaDetailCtrl.do?no="+no);
+		}
 	}
 }

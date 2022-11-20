@@ -3,23 +3,15 @@ package kr.go.deagu.dto;
 import java.util.Date;
 
 public class QnaDTO {
-	private int no;
-	private String title;
-	private String content;	
-	private String author;	
-	private Date resDate;	
-	private int lev;	
-	private int parno;	
-	private String sec;	
-	private int visited;
-	private String id;
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	private int no;	//글번호
+	private String title;	//제목
+	private String content;	//내용
+	private String author;	//작성자 아이디
+	private String resDate;	//작성일
+	private int lev;	//깊이
+	private int parno;	//부모글 번호
+	private String sec;	//비밀글 여부
+	private int visited;	//읽은횟수
 	public int getNo() {
 		return no;
 	}
@@ -44,10 +36,10 @@ public class QnaDTO {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public Date getResDate() {
+	public String getResDate() {
 		return resDate;
 	}
-	public void setResDate(Date resDate) {
+	public void setResDate(String resDate) {
 		this.resDate = resDate;
 	}
 	public int getLev() {
@@ -81,6 +73,5 @@ public class QnaDTO {
 				+ lev + ", parno=" + parno + ", sec=" + sec + ", visited="
 				+ visited + "]";
 	}
-	
 	
 }

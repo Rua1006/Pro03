@@ -7,9 +7,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.go.deagu.dto.ImpressDTO;
+import kr.go.deagu.dto.PicDTO;
+import kr.go.deagu.dto.TourDTO;
 import kr.go.deagu.model.ImpressDAO;
+import kr.go.deagu.model.TourDAO;
 
 @WebServlet("/AddImpressCtrl.do")
 public class AddImpressCtrl extends HttpServlet {
@@ -21,12 +25,19 @@ public class AddImpressCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("sid");
+		
 		String cate = request.getParameter("cate");
 		String tourno = request.getParameter("tourno");
-		String id = request.getParameter("id");
 		String content = request.getParameter("content");
 		Double star = Double.parseDouble(request.getParameter("star"));
-		String imgSrc = request.getParameter("imgSrc");
+		
+		TourDAO picture = new TourDAO();
+		PicDTO pic = picture.getPic(tourno);
+		TourDTO tour = picture.getPlace(tourno); 
+		
+		String imgSrc = pic.getPicname();
 		
 		ImpressDTO dto = new ImpressDTO();
 		dto.setCate(cate);
@@ -37,13 +48,9 @@ public class AddImpressCtrl extends HttpServlet {
 		dto.setImgSrc(imgSrc);
 		
 		ImpressDAO dao = new ImpressDAO();
-		int cnt = dao.addImp(dto);
+		dto.setPlace(tour.getPlace());
+		dao.addImpress(dto);
 		
-		if(cnt>=1){
-			response.sendRedirect("GetImpressListCtrl.do");
-		} else{
-			response.sendRedirect("./impress/addImpress.jsp");
-		}
+		response.sendRedirect("GetImpressListCtrl.do");
 	}
-
 }

@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>이용후기 목록</title>
     <jsp:include page="/head.jsp" />
+    
 	<link rel="stylesheet" href="${path1 }/resource/datatables.min.css">
 	<script src="${path1 }/resource/datatables.min.js"></script>
 	<script>
@@ -52,10 +53,10 @@
 		      		<c:set var="string2" value="${fn:substring(string1, 0, length-3)}" />
 		      		${string2}<c:forEach var="i" begin="1" end="${length - 2 }"><span>*</span></c:forEach>
 		      	</div>
-		      	<div>
+		      	<%-- <div>
 		      		<input type="hidden" name="star" id="star" />
 		      		<div class="star_data" style="width:${dto.star*20 }px"></div>
-		      	</div>
+		      	</div> --%>
 		      </td>
 		      <td>
 		      	<fmt:parseDate value="${dto.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -98,12 +99,11 @@
 						<div class="select" style="width:150">
 							<select name="tourno" id="tourno" style="width:150" required>
 								<option value="">선택</option>
-								
 							</select>
 						</div>
 					</td>
-					<td style="width:100px">
-						<input type="radio" name="star" id="star10" class="hidden_item" value="5" checked>
+					<!-- <td style="width:100px">
+						<input type="radio" name="star" id="star10" class="hidden_item" value="5" checked="checked">
 						<input type="radio" name="star" id="star9" class="hidden_item" value="4.5">
 						<input type="radio" name="star" id="star8" class="hidden_item" value="4">
 						<input type="radio" name="star" id="star7" class="hidden_item" value="3.5">
@@ -131,7 +131,7 @@
 								<label for="star10"></label>
 							</div>
 						</div>
-					</td>
+					</td> -->
 					<td style="min-width:400px">
 						<input type="text" name="content" id="content" class="input" placeholder="남기고 싶은 말을 쓰시오." required>
 					</td>
@@ -147,13 +147,11 @@
     </div>
     <script>
     $(document).ready(function(){
-    	
     	$("#content").on("click", function(){
     		if($("#tourno").val()==""){
     			alert("방문 장소를 먼저 고르시기 바랍니다.");
     		}
     	});
-    	
     	$("#star_btn label").click(function(){
     		if($("#tourno").val()==""){
     			alert("방문 장소를 먼저 고르시기 바랍니다.");
@@ -162,8 +160,7 @@
     			$("#starpoint").val(($(this).index()+1)/2);
     		}
     	});
-    });
-    
+    }); 
     function changeTourNo(){
     	var ct = $("#cate").val(); 
     	if(ct==""){

@@ -27,7 +27,6 @@ public class ImpressDAO {
 				dto.setTourno(rs.getString("tourno"));
 				dto.setId(rs.getString("id"));
 				dto.setContent(rs.getString("content"));
-				dto.setStar(rs.getDouble("star"));
 				dto.setImgSrc(rs.getString("imgsrc"));
 				dto.setRegdate(rs.getString("regdate"));
 				impList.add(dto);
@@ -60,7 +59,6 @@ public class ImpressDAO {
 				dto.setTourno(rs.getString("tourno"));
 				dto.setId(rs.getString("id"));
 				dto.setContent(rs.getString("content"));
-				dto.setStar(rs.getDouble("star"));
 				dto.setImgSrc(rs.getString("imgsrc"));
 				dto.setRegdate(rs.getString("regdate"));
 			}
@@ -88,8 +86,7 @@ public class ImpressDAO {
 			pstmt.setString(2, dto.getTourno());
 			pstmt.setString(3, dto.getId());
 			pstmt.setString(4, dto.getContent());
-			pstmt.setDouble(5, dto.getStar());
-			pstmt.setString(6, dto.getImgSrc());
+			pstmt.setString(5, dto.getImgSrc());
 			pstmt.executeUpdate();
 		} catch(ClassNotFoundException e){
 			System.out.println("드라이버 로딩 실패");
@@ -134,9 +131,8 @@ public class ImpressDAO {
 			pstmt = con.prepareStatement(Maria.IMPRESS_UPDATE);
 			
 			pstmt.setString(1, dto.getContent());
-			pstmt.setDouble(2, dto.getStar());
-			pstmt.setString(3, dto.getId());		
-			pstmt.setInt(4, dto.getNo());
+			pstmt.setString(2, dto.getId());		
+			pstmt.setInt(3, dto.getNo());
 			cnt = pstmt.executeUpdate();
 		} catch(ClassNotFoundException e){
 			System.out.println("드라이버 로딩 실패");

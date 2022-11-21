@@ -31,7 +31,6 @@ public class AddImpressCtrl extends HttpServlet {
 		String cate = request.getParameter("cate");
 		String tourno = request.getParameter("tourno");
 		String content = request.getParameter("content");
-		Double star = Double.parseDouble(request.getParameter("star"));
 		
 		TourDAO picture = new TourDAO();
 		PicDTO pic = picture.getPic(tourno);
@@ -44,7 +43,6 @@ public class AddImpressCtrl extends HttpServlet {
 		dto.setTourno(tourno);
 		dto.setId(id);
 		dto.setContent(content);
-		dto.setStar(star);
 		dto.setImgSrc(imgSrc);
 		
 		ImpressDAO dao = new ImpressDAO();

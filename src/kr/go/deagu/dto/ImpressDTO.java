@@ -6,7 +6,6 @@ public class ImpressDTO {
 	private String tourno;
 	private String id;
 	private String content;
-	private Double star;
 	private String imgSrc;
 	private String regdate;
 	private String place;
@@ -40,12 +39,6 @@ public class ImpressDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Double getStar() {
-		return star;
-	}
-	public void setStar(Double star) {
-		this.star = star;
-	}
 	public String getImgSrc() {
 		return imgSrc;
 	}
@@ -67,7 +60,8 @@ public class ImpressDTO {
 	@Override
 	public String toString() {
 		return "ImpressDTO [no=" + no + ", cate=" + cate + ", tourno=" + tourno
-				+ ", id=" + id + ", conetnt=" + content + ", star=" + star
-				+ ", imgSrc=" + imgSrc + ", regdate=" + regdate + "]";
+				+ ", id=" + id + ", content=" + content + ", imgSrc=" + imgSrc
+				+ ", regdate=" + regdate + ", place=" + place + "]";
 	}
+	
 }

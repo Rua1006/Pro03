@@ -39,9 +39,9 @@ public class Maria {
 	
 	public static final String IMPRESS_SELECT_ALL = "select * from impress order by regdate desc";
 	public static final String IMPRESS_SELECT_ONE = "select * from impress where no=?";
-	public static final String IMPRESS_INSERT = "insert into impress(cate, tourno, id, content, star, imgSrc) values (?,?,?,?,?,?)";
+	public static final String IMPRESS_INSERT = "insert into impress(cate, tourno, id, content,imgSrc) values (?,?,?,?,?)";
 	public static final String IMPRESS_DELETE = "delete from impress where no=?";
-	public static final String IMPRESS_UPDATE = "update impress SET content=?, star=? where id=? and no=?";
+	public static final String IMPRESS_UPDATE = "update impress SET content=? where id=? and no=?";
 	
 	public static final String QNA_SELECT_ALL = "select * from qna order by parno desc, no asc, lev asc";
 	public static final String QNA_VISITED_UPDATE = "update qna set visited=visited+1 where no=?";

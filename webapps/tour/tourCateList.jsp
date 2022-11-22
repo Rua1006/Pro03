@@ -13,6 +13,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>장소 상세보기</title>
     <jsp:include page="/head.jsp" />
+    <style>
+    .tile:not(.is-child) {
+    display: flex;
+    flex-wrap: wrap;
+	}
+    </style>
   </head>
   <body>
   <jsp:include page="/header.jsp" />
@@ -51,7 +57,32 @@
 	</nav>
   <section class="section">
     <div class="container">
-      <h1 class="title">장소 상세보기</h1>
+      <h1 class="title">			
+      		<c:if test="${cate eq 'A' }">
+			<span>명품관광코스</span>
+			</c:if>
+			<c:if test="${cate eq 'B' }">
+			<span>관광명소</span>
+			</c:if>
+			<c:if test="${cate eq 'C' }">
+			<span>축제</span>
+			</c:if>
+			<c:if test="${cate eq 'D' }">
+			<span>숙박</span>
+			</c:if>
+			<c:if test="${cate eq 'E' }">
+			<span>식당</span>
+			</c:if>
+			<c:if test="${cate eq 'F' }">
+			<span>음식</span>
+			</c:if>
+			<c:if test="${cate eq 'G' }">
+			<span>쇼핑</span>
+			</c:if>
+			<c:if test="${cate eq 'H' }">
+			<span>기타</span>
+			</c:if>
+			목록</h1>
       	<div id="con">
       		<div class="tile is-ancestor columns" style="padding-bottom:40px;">
       			<c:if test="${not empty list }">
@@ -90,7 +121,7 @@
 			            <img src="${path1 }/upload/${dto.imgURL }" alt="${dto.place }">
 			          </figure>
 			          <div class="content" style="margin:10px;">
-			          	<p class="item_com" style="display:block; overflow: hidden; white-space: nowrap;  text-overflow: ellipsis;">${dto.comment1 }</p>
+			          	<p class="item_com">${dto.comment2 }</p>
 			          </div>
 			          <a href="${path1 }/GetTourDetailCtrl.do?no=${dto.no }" class="button is-primary">자세히 보기</a>
 			        </article>

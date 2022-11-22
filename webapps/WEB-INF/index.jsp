@@ -4,17 +4,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import ="java.util.*" %>
 <%@ page import ="java.text.*, java.net.InetAddress" %>
-<c:set var="path1" value="${request.getContextPath()}" />    
+<c:set var="path0" value="<%=request.getContextPath() %>" />
+<c:set var="path1" value="${request.getContextPath()}" />
 <!DOCTYPE>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>메인페이지</title>
+    <title>대구관광안내 DAEGU TOURIST INFORMATION</title>
     <jsp:include page="/head.jsp" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <style>
-	.section {height: auto;}    
+	.section {height: auto; width: 1300px; margin: 0 auto;}    
     .panel-block {width: 50%; margin: 0 auto;}
     </style>
 </head>
@@ -31,97 +32,61 @@
 <section class="section">	
 <div class="tile is-ancestor">
   <div class="tile is-parent">
-    <article class="tile is-child box">
-      <p class="title">Hello World</p>
-      <p class="subtitle">What is up?</p>
+    <article class="tile is-child box" style="height: 240; ">
+		<img alt="fes" src="${path0 }/data/getImage.jpg" style="width: 350; height: 190;">
+      	<p class="title">명품관광코스</p>
     </article>
   </div>
   <div class="tile is-parent">
-    <article class="tile is-child box">
-      <p class="title">Foo</p>
-      <p class="subtitle">Bar</p>
+    <article class="tile is-child box"  style="height: 240;">
+    	<img alt="fes" src="${path0 }/data/getImage11.jpg" style="width: 350; height: 190;">
+      	<p class="title">관광명소</p>
     </article>
   </div>
   <div class="tile is-parent">
-    <article class="tile is-child box">
-      <p class="title">Third column</p>
-      <p class="subtitle">With some content</p>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-      </div>
+    <article class="tile is-child box"  style="height: 240;">
+     <img alt="fes" src="${path0 }/data/getImage13.jpg" style="width: 350; height: 190;">
+      	<p class="title">축제</p>
     </article>
   </div>
 </div>
-
 <div class="tile is-ancestor">
-  <div class="tile is-vertical is-8">
+  <div class="tile is-vertical is-9">
     <div class="tile">
       <div class="tile is-parent is-vertical">
-        <article class="tile is-child box">
-          <p class="title">Vertical tiles</p>
-          <p class="subtitle">Top box</p>
+        <article class="tile is-child box"  style="width: 240;">
+         <img alt="fes" src="${path0 }/data/getImage10.jpg" style="width: 220; height: 190;">
+      	<p class="title">숙박</p>
         </article>
-        <article class="tile is-child box">
-          <p class="title">Vertical tiles</p>
-          <p class="subtitle">Bottom box</p>
+        <article class="tile is-child box" style="width: 240;">
+          <img alt="fes" src="${path0 }/data/rec3.jpg" >
+      	<p class="title">식당</p>
         </article>
       </div>
       <div class="tile is-parent">
         <article class="tile is-child box">
-          <p class="title">Middle box</p>
-          <p class="subtitle">With an image</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
-          </figure>
+         <iframe width="600"  height="400" src="https://www.youtube.com/embed/I_bsnbBFXZo" title="대구시티투어-클래식투어" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </article>
       </div>
     </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <p class="title">Wide column</p>
-        <p class="subtitle">Aligned with the right column</p>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-        </div>
-      </article>
+  </div>
+  <div class="tile is-vertical is-3">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child box" style="width: 279;" >
+           <img alt="fes" src="${path0 }/data/tasteLogo.jpg">
+      	<p class="title">대구 10미</p>
+        </article>
+        <article class="tile is-child box">
+          <img alt="fes" src="${path0 }/data/dvvp1.jpg">
+      	<p class="title">쇼핑</p>
+        </article>
+      </div>
     </div>
-  </div>
-  <div class="tile is-parent">
-    <article class="tile is-child box">
-      <div class="content">
-        <p class="title">Tall column</p>
-        <p class="subtitle">With even more content</p>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
-          <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
-          <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
-        </div>
-      </div>
-    </article>
-  </div>
-</div>
-
-<div class="tile is-ancestor">
-  <div class="tile is-parent">
-    <article class="tile is-child box">
-      <p class="title">Side column</p>
-      <p class="subtitle">With some content</p>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-      </div>
-    </article>
-  </div>
-  <div class="tile is-parent is-8">
-    <article class="tile is-child box">
-      <p class="title">Main column</p>
-      <p class="subtitle">With some content</p>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-      </div>
-    </article>
   </div>
 </div>
 </section>
+
 <jsp:include page="${path1 }/footer.jsp"/>	
 </body>
 </html>

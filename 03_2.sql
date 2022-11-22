@@ -95,14 +95,13 @@ CREATE TABLE impress(
 	tourno VARCHAR(20),
 	id VARCHAR(30),
 	content VARCHAR(1000),
-	star DOUBLE,
 	imgSrc VARCHAR(150),
 	regdate DATETIME default NOW()
 );
 
 DESC impress;
 DROP table impress;
-INSERT INTO impress(cate, tourno, id, content, star, imgSrc) VALUES (?,?,?,?,?,?);
+INSERT INTO impress(cate, tourno, id, content, imgSrc) VALUES (?,?,?,?,?);
 DELETE FROM impress WHERE NO=?;
 UPDATE impress SET content=?, star=? WHERE id=? AND NO=?;
 SELECT * FROM impress;

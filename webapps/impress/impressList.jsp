@@ -14,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>이용후기 목록</title>
     <jsp:include page="/head.jsp" />
-    
 	<link rel="stylesheet" href="${path1 }/resource/datatables.min.css">
 	<script src="${path1 }/resource/datatables.min.js"></script>
 	<script>
@@ -53,10 +52,6 @@
 		      		<c:set var="string2" value="${fn:substring(string1, 0, length-3)}" />
 		      		${string2}<c:forEach var="i" begin="1" end="${length - 2 }"><span>*</span></c:forEach>
 		      	</div>
-		      	<%-- <div>
-		      		<input type="hidden" name="star" id="star" />
-		      		<div class="star_data" style="width:${dto.star*20 }px"></div>
-		      	</div> --%>
 		      </td>
 		      <td>
 		      	<fmt:parseDate value="${dto.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -102,38 +97,8 @@
 							</select>
 						</div>
 					</td>
-					<!-- <td style="width:100px">
-						<input type="radio" name="star" id="star10" class="hidden_item" value="5" checked="checked">
-						<input type="radio" name="star" id="star9" class="hidden_item" value="4.5">
-						<input type="radio" name="star" id="star8" class="hidden_item" value="4">
-						<input type="radio" name="star" id="star7" class="hidden_item" value="3.5">
-						<input type="radio" name="star" id="star6" class="hidden_item" value="3">
-						<input type="radio" name="star" id="star5" class="hidden_item" value="2.5">
-						<input type="radio" name="star" id="star4" class="hidden_item" value="2">
-						<input type="radio" name="star" id="star3" class="hidden_item" value="1.5">
-						<input type="radio" name="star" id="star2" class="hidden_item" value="1">
-						<input type="radio" name="star" id="star1" class="hidden_item" value="0.5">
-						<input type="hidden" name="starpoint" id="starpoint" value="">
-						<div id="star_group">
-							<div id="stardate">
-								<div id="starrate"></div>
-							</div>
-							<div class="star_btn" id="star_btn">
-								<label for="star1"></label>
-								<label for="star2"></label>
-								<label for="star3"></label>
-								<label for="star4"></label>
-								<label for="star5"></label>
-								<label for="star6"></label>
-								<label for="star7"></label>
-								<label for="star8"></label>
-								<label for="star9"></label>
-								<label for="star10"></label>
-							</div>
-						</div>
-					</td> -->
 					<td style="min-width:400px">
-						<input type="text" name="content" id="content" class="input" placeholder="남기고 싶은 말을 쓰시오." required>
+						<input type="text" name="content" id="content" class="input" placeholder="이용후기를 작성해주세요." required>
 					</td>
 					<td>
 						<div class="buttons">
@@ -150,14 +115,6 @@
     	$("#content").on("click", function(){
     		if($("#tourno").val()==""){
     			alert("방문 장소를 먼저 고르시기 바랍니다.");
-    		}
-    	});
-    	$("#star_btn label").click(function(){
-    		if($("#tourno").val()==""){
-    			alert("방문 장소를 먼저 고르시기 바랍니다.");
-    			$("#tourno").focus();
-    		} else {
-    			$("#starpoint").val(($(this).index()+1)/2);
     		}
     	});
     }); 
@@ -206,11 +163,7 @@
     		alert("내용을 입력하시기 바랍니다.");
     		return;
     	}
-    	if(starpoint==""){
-    		alert("별점을 먼저 선택하여 주시기 바랍니다.");
-    		return;
-    	}
-    	var params = {	cate : ct, tourno : tour, content : con, star :	starpoint }
+    	var params = {	cate : ct, tourno : tour, content : con  }
 		$.ajax({
 			url:"${path1 }/AddImpressCtrl.do",
 			type:"POST",

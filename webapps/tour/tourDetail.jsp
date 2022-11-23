@@ -15,8 +15,9 @@
     <jsp:include page="/head.jsp" />
     
 	<style>
-	.table {line-height: 50px; word-break: keep-all; border-top : 1px solid #333; border-bottom: 1px solid #333;}
-	
+	.table {line-height: 50px; word-break: keep-all; border-top : 1px solid #333; border-bottom: 1px solid #333; border-collapse: collapse;}
+	#con {margin-bottom: 10px;}
+	.table img{height: 330px;}
 	</style>
   </head>
   <body>

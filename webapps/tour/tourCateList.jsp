@@ -14,10 +14,12 @@
     <title>장소 상세보기</title>
     <jsp:include page="/head.jsp" />
     <style>
-    .tile:not(.is-child) {
-    display: flex;
-    flex-wrap: wrap;
-	}
+    .tile:not(.is-child) {display: flex; flex-wrap: wrap;}
+	.item_com {font-size: 12px;}
+	.container .title {font-size: 20px;}
+	.container .subtitle {font-size: 17px;}
+	.button {position:absolute; right: 0px; bottom: 0px;}
+	.buttons {position: absolute; right: 0px; bottom: 0px;}
     </style>
   </head>
   <body>

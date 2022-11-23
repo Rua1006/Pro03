@@ -9,7 +9,7 @@
 <nav class="navbar is-white" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" id="logo" href="<%=request.getContextPath() %>/">
-      
+
     </a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -74,26 +74,23 @@
 			<div class="navbar-dropdown cate" id="cate07">
 				    
 			</div>
-		</div>
-	    <a class="navbar-item" href="<%=request.getContextPath()%>/GetNoticeListCtrl.do">
-		NOTICE
-		</a>
+		</div> 
 		<div class="navbar-item has-dropdown is-hoverable">
 			<a class="navbar-link">
 		 	더 알아보기
 			</a>
 			<div class="navbar-dropdown">
+			<a class="navbar-item" href="<%=request.getContextPath()%>/GetNoticeListCtrl.do">
+				NOTICE
+			</a>
+			<hr class="navbar-divider">
 	          <a class="navbar-item" href="<%=request.getContextPath()%>/GetQnaListCtrl.do">
 	            QNA
 	          </a>
 	          <hr class="navbar-divider">
 	          <a class="navbar-item" href="<%=request.getContextPath()%>/GetImpressListCtrl.do">
 	 			이용후기
-	          </a>
-	          <hr class="navbar-divider">
-	          <a class="navbar-item" >
-	            Report an issue
-	          </a>
+	          </a> 
 	       	</div>
 		</div>
 	</div>

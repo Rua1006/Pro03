@@ -80,11 +80,11 @@
 						<div class="select" style="width:150">
 						  <select name="cate" id="cate" class="select" onchange="changeTourNo()" style="width:150" required>
 						  	<option value="">선택</option>
-						    <option value="A">관광</option>
-						    <option value="B">체험</option>
-						    <option value="C">행사</option>
-						    <option value="D">축제</option>
-						    <option value="E">숙박</option>
+						    <option value="A">명품관광코스</option>
+						    <option value="B">관광명소</option>
+						    <option value="C">축제</option>
+						    <option value="D">숙박</option>
+						    <option value="E">식당</option>
 						    <option value="F">음식</option>
 						    <option value="G">쇼핑</option>
 						    <option value="H">기타</option>

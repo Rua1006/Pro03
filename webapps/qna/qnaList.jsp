@@ -33,7 +33,7 @@
 		<table class="table" id="tb1">
 			<thead>
 				<tr>
-					<th style="max-width:5px"></th><th>연번</th><th>제목</th><th>작성자</th><th>작성일</th>
+					<th style="max-width:5px"></th><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
 				</tr>
 			</thead>
 			<tbody>

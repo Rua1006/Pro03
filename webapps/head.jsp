@@ -11,7 +11,7 @@
 body, html { font-family: 'Noto Sans KR', sans-serif; }
 .table { min-width:960px; }
 #logo { display:block; width:217px; height:63px; background-image:url("${path0 }/data/logo.png");
-background-size:85% auto; background-repeat:no-repeat; background-position:center center; }
+background-size:100% auto; background-repeat:no-repeat; background-position:center center; padding: 0;}
 .content .item_com {width:200px;}
 .con {width: 100%;}
 </style>

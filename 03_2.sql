@@ -106,6 +106,7 @@ DELETE FROM impress WHERE NO=?;
 UPDATE impress SET content=?, star=? WHERE id=? AND NO=?;
 SELECT * FROM impress;
 
+DROP TABLE qna;
 -- 질문 및 답변
 create table qna(
     no int primary key auto_increment,
